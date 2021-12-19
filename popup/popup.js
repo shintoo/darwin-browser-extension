@@ -1,4 +1,5 @@
 const INAT_STUB = "https://www.inaturalist.org/people/"
+const INAT_QUERY_STUB = "https://www.inaturalist.org/observations"
 const EBIRD_STUB = "https://ebird.org/checklist/"
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -39,6 +40,10 @@ function getImport(tabUrl, counter) {
     count = parseInt(counter.value)
     text = "Import " + count + " Observations"
     url = "https://darwintree.app/b/i/" + tabUrl.slice(INAT_STUB.length) + "/" + count
+  } else if (tabUrl.includes(INAT_QUERY_STUB)) {
+    count = parseInt(counter.value)
+    text = "Import " + count + " Observations"
+    url = "https://darwintree.app/b/i/query" + tabUrl.slice(INAT_QUERY_STUB.length) + "&count=" + count
   } else if (tabUrl.includes(EBIRD_STUB)) {
     text = "Import eBird Checklist"
     url = "https:/darwintree.app/b/e/" + tabUrl.slice(EBIRD_STUB.length)
