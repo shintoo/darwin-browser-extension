@@ -7,15 +7,20 @@
     <script type="text/javascript" src="../lib/darwin-import.js"></script>
     <script src="popup.js"></script>
     <div id="root">
-      <div id="obs-count-input">
-        <span># Observations:</span> <input id="count" type="number" min="1" max="30" value="10" />
+      <div id="logo-container">
+        <img id="logo" src="../images/logo.png"/>
       </div>
-
-      <a id="import-anchor" href="https://darwintree.app/b" target="_blank" rel="noreferrer noopener">
-        <div id="import-button" class="button">
-          Open Darwin
+      <div id="main">
+        <div id="obs-count-input">
+          <span># Observations:</span> <input id="count" type="number" min="1" max="30" value="10" />
         </div>
-      </a>
+
+        <a id="import-anchor" href="https://darwintree.app/b" target="_blank" rel="noreferrer noopener">
+          <div id="import-button" class="button">
+            Open Darwin
+          </div>
+        </a>
+      </div>
     </div>
   </body>
 </html>

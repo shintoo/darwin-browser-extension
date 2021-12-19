@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
       a.href = url
       button.textContent = text
       if (text.includes("Observations")) {
-        iNatUI.style.display = "inline"
+        iNatUI.style.display = "flex"
       } else {
         iNatUI.style.display = "none"
       }

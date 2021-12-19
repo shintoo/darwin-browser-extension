@@ -1,5 +1,5 @@
 mkdir dist
-zip -q -r darwin-firefox-addon.zip lib images manifest.json popup
+zip -q -r darwin-firefox-addon.zip lib images manifest.json popup background.js
 mv darwin-firefox-addon.zip dist
 echo "Created dist/darwin-firefox-extension.zip"
 mkdir build
