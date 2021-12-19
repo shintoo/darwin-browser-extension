@@ -1,7 +1,3 @@
-const INAT_STUB = "https://www.inaturalist.org/people/"
-const INAT_QUERY_STUB = "https://www.inaturalist.org/observations"
-const EBIRD_STUB = "https://ebird.org/checklist/"
-
 document.addEventListener("DOMContentLoaded", function() {
   let a = document.getElementById("import-anchor")
   let button = document.getElementById("import-button")
@@ -20,37 +16,20 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         iNatUI.style.display = "none"
       }
+
+      if (text.includes("Import")) {
+        browser.browserAction.setBadgeText({
+          text: "i"
+        })
+        browser.browserAction.setBadgeBackgroundColor({
+          color: "#32B0F9",
+        })
+      } else {
+        browser.browserAction.setBadgeText({
+          text: ""
+        })
+      }
     })
   }
-
   updateUrl()
 })
-
-async function getUrl() {
-  let options = { active: true, currentWindow: true }
-  let [tab] = await browser.tabs.query(options)
-  return tab.url
-}
-
-function getImport(tabUrl, counter) {
-  let text
-  let url
-
-  if (tabUrl.includes(INAT_STUB)) {
-    count = parseInt(counter.value)
-    text = "Import " + count + " Observations"
-    url = "https://darwintree.app/b/i/" + tabUrl.slice(INAT_STUB.length) + "/" + count
-  } else if (tabUrl.includes(INAT_QUERY_STUB)) {
-    count = parseInt(counter.value)
-    text = "Import " + count + " Observations"
-    url = "https://darwintree.app/b/i/query" + tabUrl.slice(INAT_QUERY_STUB.length) + "&count=" + count
-  } else if (tabUrl.includes(EBIRD_STUB)) {
-    text = "Import eBird Checklist"
-    url = "https:/darwintree.app/b/e/" + tabUrl.slice(EBIRD_STUB.length)
-  } else {
-    text = "Open Darwin"
-    url = "https://darwintree.app/b/"
-  }
-
-  return {text, url}
-}
