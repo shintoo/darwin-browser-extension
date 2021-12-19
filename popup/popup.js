@@ -16,19 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         iNatUI.style.display = "none"
       }
-
-      if (text.includes("Import")) {
-        browser.browserAction.setBadgeText({
-          text: "i"
-        })
-        browser.browserAction.setBadgeBackgroundColor({
-          color: "#32B0F9",
-        })
-      } else {
-        browser.browserAction.setBadgeText({
-          text: ""
-        })
-      }
     })
   }
   updateUrl()
